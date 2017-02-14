@@ -31,12 +31,12 @@ if [ ! -d "$DEST" ]; then
 fi
 
 # create root CA
-./scripts/tls/root-ca $DEST
+./root-ca $DEST
 
 # create Kubernetes master and worker certificates
-./scripts/tls/kubernetes-cert $DEST admin kube-admin
-./scripts/tls/kubernetes-cert $DEST apiserver kube-apiserver $MASTERS
-./scripts/tls/kubernetes-cert $DEST worker kube-worker $WORKERS
+./kubernetes-cert $DEST admin controllers.ctlab.com
+./kubernetes-cert $DEST apiserver controlllers.ctlab.com $MASTERS
+./kubernetes-cert $DEST worker tectonic.ctlab.com $WORKERS
 
 # create a kubeconfig
-./scripts/tls/kube-conf $DEST $SERVER
+./kube-conf $DEST $SERVER
