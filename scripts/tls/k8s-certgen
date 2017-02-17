@@ -34,9 +34,9 @@ fi
 ./root-ca $DEST
 
 # create Kubernetes master and worker certificates
-./kubernetes-cert $DEST admin controllers.ctlab.com
-./kubernetes-cert $DEST apiserver controlllers.ctlab.com $MASTERS
-./kubernetes-cert $DEST worker tectonic.ctlab.com $WORKERS
+./kubernetes-cert $DEST admin kube-admin
+./kubernetes-cert $DEST apiserver kube-apiserver $MASTERS
+./kubernetes-cert $DEST worker kube-worker $WORKERS
 
 # create a kubeconfig
 ./kube-conf $DEST $SERVER

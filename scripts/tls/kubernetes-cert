@@ -43,10 +43,11 @@ keyUsage = nonRepudiation, digitalSignature, keyEncipherment
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.101 = kubernetes
-DNS.102 = kubernetes.default
-DNS.103 = kubernetes.default.svc
-DNS.104 = kubernetes.default.svc.cluster.local
+DNS.1 = kubernetes
+DNS.2 = kubernetes.default
+DNS.3 = kubernetes.default.svc
+DNS.4 = kubernetes.default.svc.cluster.local
+DNS.5 = controllers.ctlab.com
 "
 echo "Generating SSL artifacts in $OUTDIR"
 
