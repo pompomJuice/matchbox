@@ -1,7 +1,7 @@
 
-# Self-Hosted Kubernetes
+# Self-hosted Kubernetes
 
-The self-hosted Kubernetes example provisions a 3 node "self-hosted" Kubernetes v1.5.3 cluster. On-host kubelets wait for an apiserver to become reachable, then yield to kubelet pods scheduled via daemonset. [bootkube](https://github.com/kubernetes-incubator/bootkube) is run on any controller to bootstrap a temporary apiserver which schedules control plane components as pods before exiting. An etcd cluster backs Kubernetes and coordinates CoreOS auto-updates (enabled for disk installs).
+The self-hosted Kubernetes example provisions a 3 node "self-hosted" Kubernetes v1.5.4 cluster. On-host kubelets wait for an apiserver to become reachable, then yield to kubelet pods scheduled via daemonset. [bootkube](https://github.com/kubernetes-incubator/bootkube) is run on any controller to bootstrap a temporary apiserver which schedules control plane components as pods before exiting. An etcd cluster backs Kubernetes and coordinates CoreOS auto-updates (enabled for disk installs).
 
 ## Requirements
 
@@ -12,13 +12,13 @@ Ensure that you've gone through the [matchbox with rkt](getting-started-rkt.md) 
 * Create the example libvirt client VMs
 * `/etc/hosts` entries for `node[1-3].example.com` (or pass custom names to `k8s-certgen`)
 
-Install [bootkube](https://github.com/kubernetes-incubator/bootkube/releases) v0.3.9 and add it somewhere on your PATH.
+Install [bootkube](https://github.com/kubernetes-incubator/bootkube/releases) v0.3.11 and add it somewhere on your PATH.
 
 ```sh
-$ wget https://github.com/kubernetes-incubator/bootkube/releases/download/v0.3.9/bootkube.tar.gz
+$ wget https://github.com/kubernetes-incubator/bootkube/releases/download/v0.3.11/bootkube.tar.gz
 $ tar xzf bootkube.tar.gz
 $ ./bin/linux/bootkube version
-Version: v0.3.9
+Version: v0.3.11
 ```
 
 ## Examples
@@ -28,7 +28,7 @@ The [examples](../examples) statically assign IP addresses to libvirt client VMs
 * [bootkube](../examples/groups/bootkube) - iPXE boot a self-hosted Kubernetes cluster
 * [bootkube-install](../examples/groups/bootkube-install) - Install a self-hosted Kubernetes cluster
 
-### Assets
+## Assets
 
 Download the CoreOS image assets referenced in the target [profile](../examples/profiles).
 
@@ -124,6 +124,6 @@ kube-system   pod-checkpointer-node1.example.com         1/1       Running   2  
 
 Try deleting pods to see that the cluster is resilient to failures and machine restarts (CoreOS auto-updates).
 
-## Going Further
+## Going further
 
 [Learn](bootkube-upgrades.md) to upgrade a self-hosted Kubernetes cluster.
